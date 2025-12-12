@@ -1,0 +1,7 @@
+{
+  "todoText" : "Learn Cypress",
+  "testTodos" :[
+        { "title": "Mocked Todo 1", "completed": false },
+        { "title": "Mocked Todo 2", "completed": true }
+    ]
+}
