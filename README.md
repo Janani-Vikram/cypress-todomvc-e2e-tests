@@ -1,6 +1,6 @@
-# 🧪 Cypress JavaScript Test Automation Framework — Test Strategy
+# 🧪 Cypress TypeScript Test Automation Framework — Test Strategy
 
-This README explains the design of the Cypress (JavaScript) test framework, why tests were written the way they were, how the framework scales, how to avoid flakiness, how to run it in CI, and how release readiness is measured.
+This README explains the design of the Cypress (TypeScript) test framework, why tests were written the way they were, how the framework scales, how to avoid flakiness, how to run it in CI, and how release readiness is measured.
 
 ---
 
@@ -10,14 +10,14 @@ This README explains the design of the Cypress (JavaScript) test framework, why 
 project/
 │
 ├── cypress/
-│   ├── e2e/                # All spec files (JS)
+│   ├── e2e/                # All spec files (TS)
 │   ├── fixtures/           # Test data (JSON)
 │   ├── support/
-│   │   ├── commands.js     # Reusable custom commands
-│   │   └── e2e.js          # Global before/after hooks
+│   │   ├── commands.ts     # Reusable custom commands
+│   │   └── e2e.ts          # Global before/after hooks
 │
 ├── .gitignore
-├── cypress.config.js       # Cypress configuration
+├── cypress.config.ts       # Cypress configuration
 ├── package.json
 ├── AI_USAGE.md
 └── README.md
@@ -121,9 +121,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.18.2
+
       - name: Install dependencies
         run: npm install
+
       - name: Run Cypress tests
         run: npx cypress run
 ```
