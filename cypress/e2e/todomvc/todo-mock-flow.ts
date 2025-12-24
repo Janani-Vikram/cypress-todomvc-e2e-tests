@@ -1,10 +1,11 @@
 import data from "../../fixtures/todosData.json";
+import { Cypress } from "../../support/commands";
 describe("TodoMVC – UI-driven deterministic mocks", () => {
 
     before(() => {
         cy.visit("/");
-        cy.clearCompletedTodos();
-        cy.removeActiveTodos();
+        Cypress.clearCompletedTodos();
+        Cypress.removeActiveTodos();
     });
 
     it("verifies todos in UI and adds a new one", () => {

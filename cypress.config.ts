@@ -7,6 +7,6 @@ export default defineConfig({
     viewportWidth: 1280,
     viewportHeight: 800,
     testIsolation: false,
-    specPattern: "**/todomvc/*.js"
+    specPattern: "**/todomvc/*.ts"
   }
 });

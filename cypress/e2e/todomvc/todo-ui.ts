@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 import data from "../../fixtures/todosData.json";
+import { Cypress } from "../../support/commands";
 
 describe("TodoMVC - Critical User Flow", () => {
 
@@ -9,16 +10,16 @@ describe("TodoMVC - Critical User Flow", () => {
 
   it("should add a todo, mark it complete, and verify state", () => {
 
-    cy.clearCompletedTodos();
-    cy.removeActiveTodos();
+    Cypress.clearCompletedTodos();
+    Cypress.removeActiveTodos();
 
     // 1. Add a todo item
-    cy.addTodo(data.todoText);
+    Cypress.addTodo(data.todoText);
 
     cy.get(".todo-list li").should("have.length", 1).first().should("contain.text", "Learn Cypress");
 
     // 2. Mark it complete
-    cy.toggleTodo(0);
+    Cypress.toggleTodo(0);
 
     cy.get(".todo-list li").first().should("have.class", "completed");
 
